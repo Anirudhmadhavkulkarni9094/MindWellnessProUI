@@ -149,6 +149,7 @@ function Assessment() {
               <div className="flex flex-wrap items-center gap-5">
   <div className="flex items-center">
     <input
+      
       type="radio"
       className=""
       required
@@ -160,6 +161,7 @@ function Assessment() {
   </div>
   <div className="flex items-center">
     <input
+      
       type="radio"
       className=""
       required
@@ -171,6 +173,7 @@ function Assessment() {
   </div>
   <div className="flex items-center">
     <input
+      
       type="radio"
       className=""
       required
@@ -182,6 +185,7 @@ function Assessment() {
   </div>
   <div className="flex items-center">
     <input
+      
       type="radio"
       className=""
       required
@@ -193,6 +197,7 @@ function Assessment() {
   </div>
   <div className="flex items-center">
     <input
+      
       type="radio"
       className=""
       required

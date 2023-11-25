@@ -28,15 +28,16 @@ function TestEntryForm({info}) {
           <div className="flex flex-col text-left my-4">
             <label>Age</label>
             <select
-              className="px-3 py-2 rounded-lg" value="18-25"
-              onChange={(e) => info.setAge(e.target.value)}
-            >
-              <option value="18-25">18-25</option>
-              <option value="26-35">26-35</option>
-              <option value="36-45">36-45</option>
-              <option value="46-55">46-55</option>
-              <option value="56+">56+</option>
-            </select>
+  className="px-3 py-2 rounded-lg"
+  value={info.age} // Make sure to use info.age as the value here
+  onChange={(e) => info.setAge(e.target.value)}
+>
+  <option value="18-25">18-25</option>
+  <option value="26-35">26-35</option>
+  <option value="36-45">36-45</option>
+  <option value="46-55">46-55</option>
+  <option value="56+">56+</option>
+</select>
           </div>
           <select value={info.Category} onChange={(e) => info.SetCategory(e.target.value)}>
                 <option value="">Select Category</option>

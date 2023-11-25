@@ -6,7 +6,6 @@ import AssessmentPage from './Components/Assessments/AssessmentPage';
 import Assessment from './Components/Assessments/Assessment';
 import MentalHealthResource from './Components/MentalHealthResource';
 import ContactUs from './Components/ContactUs';
-import MyDocument from './Components/MyDocument';
 import Report from './Components/Report';
 import QuestionHome from './Components/Questions/QuestionHome';
 function App() {

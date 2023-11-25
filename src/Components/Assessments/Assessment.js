@@ -56,7 +56,7 @@ function Assessment() {
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [Questions]);
+  }, [Questions , category]);
 
   const handleResponseChange = (index, response) => {
     const newResponses = [...responses];

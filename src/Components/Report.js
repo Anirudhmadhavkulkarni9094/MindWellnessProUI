@@ -18,7 +18,7 @@ function Report() {
 
   const handleReportCheck = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/getReport', { email: email, uid: uid }).then((res) => {
+    axios.post('https://mindwellnesspro.onrender.com/getReport', { email: email, uid: uid }).then((res) => {
       setReport(res.data);
     });
   };

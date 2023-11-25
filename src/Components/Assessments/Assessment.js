@@ -29,7 +29,7 @@ function Assessment() {
       setLogged(auth);
       console.log({name , email , age , category})
     }
-    axios.get("http://localhost:3001/questions")
+    axios.get("https://mindwellnesspro.onrender.com/questions")
       .then(res => {
         setQuestions(res.data || []);
         console.log(res.data);

@@ -11,7 +11,7 @@ function DisplayQuestion() {
   const [Question , setQuestion] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3001/questions')
+    axios.get('https://mindwellnesspro.onrender.com/questions')
       .then(res => {
         setAllQuestions(res.data);
         setFilteredQuestions(res.data);

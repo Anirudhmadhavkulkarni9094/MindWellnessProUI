@@ -8,6 +8,7 @@ import MentalHealthResource from './Components/MentalHealthResource';
 import ContactUs from './Components/ContactUs';
 import Report from './Components/Report';
 import QuestionHome from './Components/Questions/QuestionHome';
+import Response from './Components/Response/Response';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
             <Route path='/Contact Us' element={<ContactUs/>}></Route>
             <Route path = '/Report' element = {<Report></Report>}></Route>
             <Route path = "/Questions" element= {<QuestionHome/>}></Route>
+            <Route path = "/Responses" element= {<Response/>}></Route>
           </Routes>
       </BrowserRouter>
     </div>

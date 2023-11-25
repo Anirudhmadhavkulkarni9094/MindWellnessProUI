@@ -82,7 +82,7 @@ function Assessment() {
     };
 
     axios
-      .post("http://localhost:3001/UserResponse", formData)
+      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
       .then(() => {
         console.log("Data added successfully");
         alert("Data added successfully");

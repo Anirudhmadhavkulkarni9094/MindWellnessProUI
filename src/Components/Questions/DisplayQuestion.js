@@ -33,7 +33,7 @@ function DisplayQuestion() {
   const addQuestion = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/questions", {
+      const response = await axios.post("https://mindwellnesspro.onrender.com/questions", {
         Question: Question,
         Category: Category
       });
@@ -49,7 +49,7 @@ function DisplayQuestion() {
   };
   const deleteQuestion = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/questions/${id}`);
+      await axios.delete(`https://mindwellnesspro.onrender.com/questions/${id}`);
       const updatedQuestions = filteredQuestions.filter(ques => ques._id !== id);
       setFilteredQuestions(updatedQuestions);
       alert("Question deleted successfully");
@@ -74,7 +74,7 @@ function DisplayQuestion() {
               </select>
             </th>
             <th>
-            <button className='px-6 py-3 rounded-xl text-xs text-white bg-red-400 uppercase tracking-wider' onClick={() => setModel(!model)}>Add project</button>
+            <button className='px-6 py-3 rounded-xl text-xs text-white bg-red-400 uppercase tracking-wider' onClick={() => setModel(!model)}>Add new!</button>
             </th>
           </tr>
         </thead>

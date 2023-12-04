@@ -22,7 +22,7 @@ function Report() {
   const handleReportCheck = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/getReport', { uniqueId: uid, email: email });
+      const response = await axios.post('https://mindwellnesspro.onrender.com/getReport', { uniqueId: uid, email: email });
 
       if (response.data.data === 'Report not found') {
         setReportLoaded(false);

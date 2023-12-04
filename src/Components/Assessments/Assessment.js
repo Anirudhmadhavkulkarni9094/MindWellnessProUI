@@ -27,12 +27,12 @@ function Assessment() {
       setCategory(Category)
       const auth = localStorage.getItem("UserLogged");
       setLogged(auth);
-      console.log({name , email , age , category})
+      // console.log({name , email , age , category})
     }
     axios.get("https://mindwellnesspro.onrender.com/questions")
       .then(res => {
         setQuestions(res.data || []);
-        console.log(res.data);
+        // console.log(res.data);
         setFilteredQuestions(Questions.filter(que =>{
           return que.Category === category
         }))
@@ -81,17 +81,15 @@ function Assessment() {
       questions: Questions,
     };
 
-    axios
-      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
-      .then(() => {
-        console.log("Data added successfully");
-        alert("Data added successfully");
-        window.location.href = "/Report";
-      })
-      .catch((err) => {
-        console.log("Error:", err);
-      });
-
+    axios.post("http://localhost:3001/UserResponse", formData)
+  .then(() => {
+    console.log("Data added successfully");
+    alert("Data added successfully");
+    window.location.href = '/Reports';
+  })
+  .catch((err) => {
+    console.log("Error adding data:", err);
+  });
     console.log(formData);
   };
 

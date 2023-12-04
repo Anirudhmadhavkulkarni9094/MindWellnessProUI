@@ -25,9 +25,9 @@ function Navbar() {
             Resources
           </Link>
         </div>
-        <button className='bg-blue-500 text-white p-3 rounded-2xl shadow-2xl lg:text-xl md:text-xl sm:text-md'>
-          Login
-        </button>
+        <Link to='/report' className='bg-blue-500 text-white p-3 rounded-2xl shadow-2xl lg:text-xl md:text-xl sm:text-md'>
+          Report
+        </Link>
       </ul>
     </motion.div>
   );

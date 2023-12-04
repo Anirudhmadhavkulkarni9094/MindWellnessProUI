@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, Document, Font , View , Image , Svg , Line  } from '@react-pdf/renderer';
+import { Page, Text, Document, Font, View, StyleSheet , Image} from '@react-pdf/renderer';
 
 // Font registration
 Font.register({
@@ -10,69 +10,123 @@ Font.register({
   ],
 });
 
-const MyDocument = () => {
-  const dummyData = {
-    user: "John Doe",
-    overallSentiment: {
-      "Positive": 40,
-      "Neutral": 30,
-      "Negative": 30,
-    },
-    emotionalPatterns: [
-      {
-        emotion: "Happiness",
-        percentage: 40,
-        details: "You expressed happiness in discussions about [Topic 1], indicating positive well-being."
-      },
-      {
-        emotion: "Anxiety",
-        percentage: 20,
-        details: "Some conversations indicated feelings of anxiety and stress related to [Topic 2]. This suggests the importance of self-awareness regarding your emotional state and managing stress effectively."
-      },
-      // Add more emotional patterns as needed...
-    ],
-    yourName: "MindWellnessPro",
-    yourOrganization: "MindWellnessPro Organization"
-  };
+const styles = StyleSheet.create({
+  page: {
+    fontFamily: 'Roboto',
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingHorizontal: 40,
+  },
+  logo : {
+    width : 50
+  },
+  title : {
+    fontSize : 18,
+    fontWeight : 800
+  },
+  header : {
+    
+  },
+  heading: {
+    fontSize: 18,
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  section: {
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  label: {
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  score: {
+    marginBottom: 10,
+  },
+  table: {
+    display: 'table',
+    width: '100%',
+    borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderRadius :2,
+    borderCollapse: 'collapse',
+  },
+  tableRow: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+  },
+  tableCell: {
+    width: '50%',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    padding: 8,
+  },
+  tableHeader: {
+    backgroundColor: '#f2f2f2',
+    fontWeight: 'bold',
+  },
+});
 
+const MyDocument = ({ data }) => {
   return (
-    <Document style={{backgroundColor : "red"}}>
-      <Page style={{ padding: 40, fontFamily: 'Roboto' }}>
-      <View style={{ position: 'relative', marginBottom: 20 , display : 'flex' , flexDirection : 'row' , justifyContent : 'space-between' , alignItems : "center" , alignContent : "center"}}>
-          <Image src={require("./Assets/LOGO.png")} style={{ width: "10%" }} />
-          <Text style={{ fontSize: 15, fontWeight: 'bold' }}>Sentiment Analysis Report</Text>
+    <Document>
+      <Page style={styles.page}>
+        <View style={{flexDirection: 'row',
+    justifyContent : "space-between" , borderBottom : "2px solid black" , marginBottom : 10}}>
+          <Text style={styles.title}>MindWelnessPro</Text>
+          <Image src={require("./Assets/LOGO.png")} style={styles.logo}></Image>
         </View>
-        <Svg height="10" width="520">
-          <Line x1="0" y1="0" x2="100%" y2="0" strokeWidth={1} stroke="rgb(0,0,0)" />
-      </Svg>
-        <Text style={{ fontSize: 12 , marginTop : "10rem"}}>Date: {new Date().toLocaleDateString()}</Text>
-        <Text style={{ fontSize: 16, fontWeight : 700, color: "green", marginTop: 10 }}>Dear {dummyData.user},</Text>
-        <Text style={{ fontSize: 14, color: "#333", marginTop: 20 }}>
-          We understand the importance of your emotional well-being during our interactions with you. We have conducted a sentiment analysis of your
-          recent conversations with our chatbot to provide insights into your emotional states and possible mental conditions.
+       
+        <Text style={styles.heading}>Patient Name:{data.name}</Text>
+        <Text style={{fontSize: 14}}>Contact: {data.email}</Text>
+        <View style={styles.section}>
+          <Text style={styles.label}>Sentiment Scores:</Text>
+          <View style={styles.table}>
+            <View style={[styles.tableRow, styles.tableHeader]}>
+              <Text style={[styles.tableCell, styles.tableHeader]}>Label</Text>
+              <Text style={[styles.tableCell, styles.tableHeader]}>Score</Text>
+            </View>
+            {data.sentiment_scores.map((senti, index) => (
+              <View style={styles.tableRow} key={index}>
+                <Text style={styles.tableCell}>{senti.label}</Text>
+                <Text style={styles.tableCell}>{(senti.score * 100).toFixed(2)}%</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+        <Text style={{ marginTop: 20 }}>
+          Your sincere,
         </Text>
-        <Text style={{ fontSize: 18, marginTop: 20 }}>Overall Sentiment:</Text>
-        {Object.entries(dummyData.overallSentiment).map(([emotion, percentage]) => (
-          <Text key={emotion} style={{ fontSize: 16, color: "#444", marginLeft: 20 }}>
-            - {emotion}: {percentage}%
-          </Text>
-        ))}
-        <Text style={{ fontSize: 18, marginTop: 20 }}>Key Emotional Patterns and Suggested Self-Awareness:</Text>
-        {dummyData.emotionalPatterns.map((pattern, index) => (
-          <Text key={index} style={{ fontSize: 16, color: "#555", marginLeft: 20 }}>
-            <Text style={{ fontWeight: 'bold' }}>{pattern.emotion}: {pattern.percentage}%</Text>{"\n"}
-            - {pattern.details}
-          </Text>
-        ))}
-        <Text style={{ fontSize: 14, color: "#333", marginTop: 20 }}>
-          We want to emphasize the importance of self-awareness and recognizing your emotional well-being. While sentiment analysis can provide
-          insights, it's not a substitute for professional assessment. If you ever feel overwhelmed or experience persistent emotional challenges, we
-          encourage you to consider seeking professional help. Your well-being is important to us, and we are here to support you.
+        <Text>
+        MindWellnessPro team.
         </Text>
-        <Text style={{ fontSize: 16, fontWeight: 'bold', color: "#333", marginTop: 20 }}>Sincerely,</Text>
-        <Text style={{ fontSize: 14, color: "#333", marginTop: 5 }}>{dummyData.yourName}</Text>
-        <Text style={{ fontSize: 14, color: "#333" }}>{dummyData.yourOrganization}</Text>
+        <Text
+          style={{
+            position: 'absolute',
+            fontSize: 10,
+            bottom: 10,
+            right: 10,
+          }}
+          render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )}
+          fixed
+        />
+        <Text
+          style={{
+            position: 'absolute',
+            fontSize: 10,
+            bottom: 10,
+            left: 10,
+            right: 10,
+            textAlign: 'center',
+            color: 'gray',
+          }}
+        >
+          *Disclaimer: This document is for informational purposes only and should not be considered as professional advice.
+        </Text>
       </Page>
+      
     </Document>
   );
 };

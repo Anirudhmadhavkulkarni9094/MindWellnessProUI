@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 function Test() {
   return (
-    <div className=' relative overflow-x-hidden '>
+    <div className=' relative overflow-hidden '>
         <h1 className='text-3xl px-40 py-20 font-bold font-home'>What Our Users Say</h1>
         <motion.div className='m-auto px-20 z-20'
             initial={{scale : 0}}

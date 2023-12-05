@@ -85,7 +85,7 @@ function Assessment() {
   .then(() => {
     console.log("Data added successfully");
     alert("Data added successfully");
-    window.location.href = '/Reports';
+    window.location.href = '/Report';
   })
   .catch((err) => {
     console.log("Error adding data:", err);

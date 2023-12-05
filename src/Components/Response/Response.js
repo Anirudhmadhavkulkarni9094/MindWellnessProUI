@@ -9,7 +9,7 @@ function Response() {
     
 
     useEffect(() => {
-        axios.get("http://localhost:3001/UserResponse")
+        axios.get("https://mindwellnesspro.onrender.com/UserResponse")
             .then(response => {
                 setData(response.data.data);
             })
@@ -22,7 +22,7 @@ function Response() {
         const confirmDelete = window.confirm('Are you sure you want to delete this item?');
     
         if (confirmDelete) {
-            axios.delete(`http://localhost:3001/UserResponse/${id}`)
+            axios.delete(`https://mindwellnesspro.onrender.com/UserResponse/${id}`)
                 .then(() => {
                     setData(prevData => prevData.filter(item => item._id !== id));
                 })

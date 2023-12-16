@@ -41,7 +41,7 @@ function TestEntryForm({ info }) {
       </div>
       <div className="flex flex-col text-left my-4">
         <label>Category</label>
-        <select value={info.Category} onChange={(e) => info.SetCategory(e.target.value)}>
+        <select value={info.Category} onChange={(e) => info.SetCategory(e.target.value)} className='p-4 rounded-xl'>
           <option value="">Select Category</option>
           <option value="anxiety disorder">Anxiety Disorder</option>
           <option value="depression">Depression</option>

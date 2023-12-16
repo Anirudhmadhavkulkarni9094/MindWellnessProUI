@@ -22,7 +22,7 @@ function About() {
         animate={{ x: 0 }}
         transition={{ type: 'spring', damping: 7, duration: 2 }}
       ></motion.h1>
-      <div className='mx-20'>
+      <div className='mx-10 h-fit'>
         <motion.div className='p-10 about overflow-x-auto z-10 flex justify-center gap-10'
           initial={{ x: '-100%' }}
           animate={{ x: 0 }}
@@ -30,7 +30,7 @@ function About() {
           {Array.from({ length: 7 }).map((_, index) => (
             <motion.div
               key={index}
-              className='bg-red-400 p-5 rounded-lg text-center'
+              className='bg-red-400 p-5 rounded-3xl text-center h-fit'
               initial={{ scale: 0.95, rotate: '0deg' }}
               whileHover={{ scale: 1.05, rotate: '-5deg' }}
             >

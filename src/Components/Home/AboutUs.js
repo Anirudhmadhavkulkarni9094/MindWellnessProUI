@@ -8,7 +8,7 @@ function AboutUs() {
             <h1 className='text-5xl font-bold py-5'>About</h1>
             <h2 className='text-xl font-thin w-4/5 text-justify'> MindWellness Pro is on a mission to provide accessible and effective mental health support. We combine advanced technology with compassionate care to help you on your mental health journey. Our team of professionals is dedicated to your well-being.</h2>
         </div>
-        <motion.div className='m-auto px-20 z-20'
+        <motion.div className='m-auto px-10 z-20'
             initial = {{x : "-100%"}}
             whileInView={{x: 0}}
             transition={{type : "spring" , damping : 9}}

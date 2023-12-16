@@ -5,12 +5,12 @@ function Test() {
   return (
     <div className=' relative overflow-hidden '>
         <h1 className='text-3xl px-40 py-20 font-bold font-home'>What Our Users Say</h1>
-        <motion.div className='m-auto px-20 z-20'
+        <motion.div className='m-auto px-10 z-20'
             initial={{scale : 0}}
             whileInView={{scale : 1}}    
         >
             <div className='flex overflow-x-scroll about '>
-                <motion.div className='bg-gray-600 rounded-lg text-center px-10 m-5 py-5 z-40'
+                <motion.div className='bg-gray-600 rounded-lg text-center h-fit p-2  m-5 z-40'
                     initial={{scale : 0.95 , rotate : 0}}
                     whileHover={{scale : 1 , rotate : -5}}
                     transition={{type:"spring" , damping : 5}}
@@ -20,7 +20,27 @@ function Test() {
                     </p>
                     <h1 className='text-sm text-white p-5'>-Emily</h1>
                 </motion.div>
-                <motion.div className='bg-gray-600 rounded-lg text-center px-10 m-5 py-5 z-40 '
+                <motion.div className='bg-gray-600 rounded-lg text-center h-fit p-2  m-5 z-40'
+                    initial={{scale : 0.95 , rotate : 0}}
+                    whileHover={{scale : 1 , rotate : -5}}
+                    transition={{type:"spring" , damping : 5}}
+                >
+                    <p className='text-white w-72'>
+                       MindWellness Pro has made a profound impact on my mental health journey. The assessments have provided valuable insights, and the therapist I connected with has been incredibly supportive.
+                    </p>
+                    <h1 className='text-sm text-white p-5'>-Emily</h1>
+                </motion.div>
+                <motion.div className='bg-gray-600 rounded-lg text-center h-fit p-2  m-5 z-40'
+                    initial={{scale : 0.95 , rotate : 0}}
+                    whileHover={{scale : 1 , rotate : -5}}
+                    transition={{type:"spring" , damping : 5}}
+                >
+                    <p className='text-white w-72'>
+                       MindWellness Pro has made a profound impact on my mental health journey. The assessments have provided valuable insights, and the therapist I connected with has been incredibly supportive.
+                    </p>
+                    <h1 className='text-sm text-white p-5'>-Emily</h1>
+                </motion.div>
+                <motion.div className='bg-gray-600 rounded-lg text-center h-fit p-2  m-5 z-40 '
                 initial={{scale : 0.95 , rotate : 0}}
                 whileHover={{scale : 1 , rotate : -5}}
                 transition={{type:"spring" , damping : 5}}
@@ -31,7 +51,7 @@ function Test() {
                     </p>
                     <h1 className='text-sm text-white p-5'>-Emily</h1>
                 </motion.div>
-                <motion.div className='bg-gray-600 rounded-lg text-center px-10 m-5 py-5 z-40 '
+                <motion.div className='bg-gray-600 rounded-lg text-center h-fit p-2  m-5 z-40 '
                     initial={{scale : 0.95 , rotate : 0}}
                     whileHover={{scale : 1 , rotate : -5}}
                     transition={{type:"spring" , damping : 5}}

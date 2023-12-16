@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainScreen from './Components/Home/MainScreen';
-import Navbar from './Components/Navbar/Navbar';
+import NavBar2 from './Components/Navbar/NavBar2';
 import AssessmentPage from './Components/Assessments/AssessmentPage';
 import Assessment from './Components/Assessments/Assessment';
 import MentalHealthResource from './Components/MentalHealthResource';
@@ -9,12 +9,14 @@ import ContactUs from './Components/ContactUs';
 import Report from './Components/Report';
 import QuestionHome from './Components/Questions/QuestionHome';
 import Response from './Components/Response/Response';
+import FORUM_HOME_PAGE from './Components/Forum/FORUM_HOME_PAGE';
+import FORUM_CONTENT from './Components/Forum/FORUM_CONTENT';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-          <Navbar /> 
+          <NavBar2 /> 
           <Routes>
             <Route path="/" element={<MainScreen />} />
             <Route path="/Home" element={<MainScreen />} />
@@ -25,6 +27,8 @@ function App() {
             <Route path = '/Report' element = {<Report></Report>}></Route>
             <Route path = "/Questions" element= {<QuestionHome/>}></Route>
             <Route path = "/Responses" element= {<Response/>}></Route>
+            <Route path = "/forum" element= {<FORUM_HOME_PAGE/>}></Route>
+            <Route path = "/forum/channel" element= {<FORUM_CONTENT/>}></Route>
           
           </Routes>
       </BrowserRouter>

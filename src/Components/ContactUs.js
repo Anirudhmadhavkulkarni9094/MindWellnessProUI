@@ -1,11 +1,36 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import axios from 'axios'
 const ContactUs = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic to handle form submission here
-    // For example, sending form data to a backend or displaying a confirmation message
-    console.log('Form submitted');
+    
+    try {
+      const response = await axios.post('http://localhost:3001/addComplaint', formData);
+
+      if (response.status === 201) {
+        console.log('Complaint added successfully');
+        // Add logic for success, like displaying a success message or redirecting
+      } else {
+        console.error('Error adding complaint');
+        // Add logic for error handling, such as displaying an error message
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle network errors or other exceptions
+    }
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   return (
@@ -21,6 +46,8 @@ const ContactUs = () => {
             type="text"
             id="name"
             name="name"
+            value={formData.name}
+            onChange={handleChange}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Your Name"
             required
@@ -32,6 +59,8 @@ const ContactUs = () => {
             type="email"
             id="email"
             name="email"
+            value={formData.email}
+            onChange={handleChange}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Your Email"
             required
@@ -42,6 +71,8 @@ const ContactUs = () => {
           <textarea
             id="message"
             name="message"
+            value={formData.message}
+            onChange={handleChange}
             rows="4"
             className="w-full px-4 py-2 border rounded-md resize-none focus:outline-none focus:border-blue-500"
             placeholder="Your Message"

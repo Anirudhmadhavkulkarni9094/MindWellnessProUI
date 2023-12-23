@@ -6,11 +6,11 @@ import AssessmentPage from './Components/Assessments/AssessmentPage';
 import Assessment from './Components/Assessments/Assessment';
 import MentalHealthResource from './Components/MentalHealthResource';
 import ContactUs from './Components/ContactUs';
-import Report from './Components/Report';
 import QuestionHome from './Components/Questions/QuestionHome';
-import Response from './Components/Response/Response';
 import FORUM_HOME_PAGE from './Components/Forum/FORUM_HOME_PAGE';
 import FORUM_CONTENT from './Components/Forum/FORUM_CONTENT';
+import Report from './Components/Report/Report';
+
 
 function App() {
   return (
@@ -26,9 +26,9 @@ function App() {
             <Route path='/Contact Us' element={<ContactUs/>}></Route>
             <Route path = '/Report' element = {<Report></Report>}></Route>
             <Route path = "/Questions" element= {<QuestionHome/>}></Route>
-            <Route path = "/Responses" element= {<Response/>}></Route>
             <Route path = "/forum" element= {<FORUM_HOME_PAGE/>}></Route>
             <Route path = "/forum/channel" element= {<FORUM_CONTENT/>}></Route>
+          
           
           </Routes>
       </BrowserRouter>

@@ -81,7 +81,7 @@ function Assessment() {
       questions: Questions,
     };
 
-    axios.post("https://mindwellnesspro.onrender.com/UserResponse", formData)
+    axios.post("http://localhost:3001/UserResponse", formData)
   .then(() => {
     console.log("Data added successfully");
     alert("Data added successfully");
@@ -141,6 +141,7 @@ function Assessment() {
                     placeholder="Enter your feelings..."
                     value={responses[index]?.text || ''}
                     onChange={(e) => handleTextInput(index, e.target.value)}
+                    required
                   />
                 </div>
               )}

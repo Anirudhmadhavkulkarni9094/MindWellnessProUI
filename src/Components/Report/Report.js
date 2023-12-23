@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import MyDocument from './MyDocument';
+import MyDocument from '../MyDocument';
 import axios from 'axios';
+import ReportVisualization from './ReportVisualization';
 
 function Report() {
   const [report, setReport] = useState();
@@ -47,6 +48,8 @@ function Report() {
   };
 
   return (
+    <>
+   {reportLoaded && <ReportVisualization data={report}/>}
     <div className='p-10  m-auto'>
         
 
@@ -76,7 +79,7 @@ function Report() {
             value={email}
             onChange={handleEmailChange}
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-          />
+            />
         </div>
         <div className='mb-6'>
           <label htmlFor='uniqueCode' className='block text-gray-700 text-sm font-bold mb-2'>
@@ -97,7 +100,7 @@ function Report() {
             <button
               type='submit'
               className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-            >
+              >
               Check
             </button>
           </div>
@@ -113,13 +116,14 @@ function Report() {
               {({ loading }) => (loading ? <button>Loading...</button> : <DownloadButton />)}
             </PDFDownloadLink>}
     </div>
+    </>
   );
 }
 
 const DownloadButton = () => (
   <button className='flex gap-2'>
     Download PDF
-    <img src={require('./Assets/download.png')} className='w-7 h-7' alt='Download Icon' />
+    <img src={require('../Assets/download.png')} className='w-7 h-7' alt='Download Icon' />
   </button>
 );
 

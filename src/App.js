@@ -6,7 +6,7 @@ import AssessmentPage from './Components/Assessments/AssessmentPage';
 import Assessment from './Components/Assessments/Assessment';
 import MentalHealthResource from './Components/MentalHealthResource';
 import ContactUs from './Components/ContactUs';
-import QuestionHome from './Components/Questions/QuestionHome';
+
 import FORUM_HOME_PAGE from './Components/Forum/FORUM_HOME_PAGE';
 import FORUM_CONTENT from './Components/Forum/FORUM_CONTENT';
 import Report from './Components/Report/Report';
@@ -25,7 +25,7 @@ function App() {
             <Route path='/Resources' element={<MentalHealthResource/>}></Route>
             <Route path='/Contact Us' element={<ContactUs/>}></Route>
             <Route path = '/Report' element = {<Report></Report>}></Route>
-            <Route path = "/Questions" element= {<QuestionHome/>}></Route>
+            
             <Route path = "/forum" element= {<FORUM_HOME_PAGE/>}></Route>
             <Route path = "/forum/channel" element= {<FORUM_CONTENT/>}></Route>
           

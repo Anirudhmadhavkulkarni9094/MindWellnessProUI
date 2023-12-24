@@ -1,44 +1,54 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
+  const [notification, setNotification] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
       const response = await axios.post('http://localhost:3001/addComplaint', formData);
-
       if (response.status === 201) {
+    
         console.log('Complaint added successfully');
-        // Add logic for success, like displaying a success message or redirecting
+        setNotification('Message sent successfully');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        setTimeout(() => {
+          setNotification('');
+        }, 3000); // Clear notification after 3 seconds
       } else {
         console.error('Error adding complaint');
-        // Add logic for error handling, such as displaying an error message
       }
     } catch (error) {
       console.error('Error:', error);
-      // Handle network errors or other exceptions
     }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
     });
+    // setNotification('Message updated'); // Set notification when form changes
   };
 
   return (
     <div className="container shadow-2xl w-1/2 mx-auto px-4 py-8 text-center">
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-      <p className="text-lg mb-6">
-        Have questions or feedback? Get in touch with us!
-      </p>
+      {notification && (
+        <p className="text-green-500 mb-4">{notification}</p>
+      )}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto text-left">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>

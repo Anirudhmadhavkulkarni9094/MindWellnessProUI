@@ -85,7 +85,7 @@ function Assessment() {
       .then(() => {
         console.log("Data added successfully");
         alert("Data added successfully");
-        // window.location.href = '/Report';
+        window.location.href = '/Report';
       })
       .catch((err) => {
         console.log("Error adding data:", err);
@@ -164,8 +164,8 @@ function Assessment() {
                     required
                     id={`unhappy-${index}`}
                     name={`response-${index}`}
-                    value="unhappy"
-                    onChange={() => handleResponseChange(index, "Unhappy")}
+                    value="depressed"
+                    onChange={() => handleResponseChange(index, "depressed")}
                   />
                   <label htmlFor={`depressed-${index}`}>depressed</label>
                 </div>
@@ -188,8 +188,8 @@ function Assessment() {
                     required
                     id={`unhappy-${index}`}
                     name={`response-${index}`}
-                    value="unhappy"
-                    onChange={() => handleResponseChange(index, "Unhappy")}
+                    value="neutral"
+                    onChange={() => handleResponseChange(index, "neutral")}
                   />
                   <label htmlFor={`neutral-${index}`}>neutral</label>
                 </div>
@@ -200,8 +200,8 @@ function Assessment() {
                     required
                     id={`unhappy-${index}`}
                     name={`response-${index}`}
-                    value="unhappy"
-                    onChange={() => handleResponseChange(index, "Unhappy")}
+                    value="happy"
+                    onChange={() => handleResponseChange(index, "happy")}
                   />
                   <label htmlFor={`happy-${index}`}>happy</label>
                 </div>
@@ -212,8 +212,8 @@ function Assessment() {
                     required
                     id={`unhappy-${index}`}
                     name={`response-${index}`}
-                    value="unhappy"
-                    onChange={() => handleResponseChange(index, "Unhappy")}
+                    value="very happy"
+                    onChange={() => handleResponseChange(index, "very happy")}
                   />
                   <label htmlFor={`very happy-${index}`}>very happy</label>
                 </div>

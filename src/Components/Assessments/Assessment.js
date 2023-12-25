@@ -12,37 +12,36 @@ function Assessment() {
   const [Logged, setLogged] = useState(false);
   const [disclaimer, setDisclaimer] = useState(true);
   const [counter, setCounter] = useState(5);
-  const [category , setCategory] = useState("");
-  const [filteredQuestions , setFilteredQuestions] = useState([]);
-
-  
+  const [category, setCategory] = useState("");
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
 
   useEffect(() => {
     const userData = localStorage.getItem("User");
     if (userData) {
-      const { name, email, age , Category } = JSON.parse(userData);
+      const { name, email, age, Category } = JSON.parse(userData);
       setName(name);
       setEmail(email);
       setAge(age);
-      setCategory(Category)
+      setCategory(Category);
       const auth = localStorage.getItem("UserLogged");
       setLogged(auth);
       // console.log({name , email , age , category})
     }
-    axios.get("https://mindwellnesspro.onrender.com/questions")
-      .then(res => {
+    axios
+      .get("https://mindwellnesspro.onrender.com/questions")
+      .then((res) => {
         setQuestions(res.data || []);
         // console.log(res.data);
-        setFilteredQuestions(Questions.filter(que =>{
-          return que.Category === category
-        }))
+        setFilteredQuestions(
+          Questions.filter((que) => {
+            return que.Category === category;
+          })
+        );
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error fetching questions:", err);
         setQuestions([]);
       });
-
-    
 
     const timeoutId = setTimeout(() => {
       setDisclaimer(false);
@@ -56,7 +55,7 @@ function Assessment() {
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [Questions , category]);
+  }, [Questions, category]);
 
   const handleResponseChange = (index, response) => {
     const newResponses = [...responses];
@@ -81,34 +80,47 @@ function Assessment() {
       questions: Questions,
     };
 
-    axios.post("http://localhost:3001/UserResponse", formData)
-  .then(() => {
-    console.log("Data added successfully");
-    alert("Data added successfully");
-    window.location.href = '/Report';
-  })
-  .catch((err) => {
-    console.log("Error adding data:", err);
-  });
+    axios
+      .post("http://localhost:3001/UserResponse", formData)
+      .then(() => {
+        console.log("Data added successfully");
+        alert("Data added successfully");
+        // window.location.href = '/Report';
+      })
+      .catch((err) => {
+        console.log("Error adding data:", err);
+      });
     console.log(formData);
   };
-
-  
 
   return (
     <div>
       <h1 className="text-3xl font-mono px-10">
-        Hello <span className="text-blue-600">{name}! lets begine your test on "{category}!"</span>
+        Hello{" "}
+        <span className="text-blue-600">
+          {name}! lets begine your test on "{category}!"
+        </span>
       </h1>
-      {disclaimer && 
+      {disclaimer && (
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 text-white p-7 z-50 shadow-2xl">
           <div className="relative">
-            <button onClick={()=>setDisclaimer(!disclaimer)} className="text-white bg-red-400 p-2 absolute -top-10 -left-10 rounded-full h-10 w-10">X</button><span className="absolute flex right-0">({counter}s)</span>
-            The sentiment analysis provided on this website is intended for informational purposes only. The analysis is based on algorithms and automated processes that interpret text and derive sentiments from it. While we strive for accuracy, please note that the results may not always accurately represent the full context or intended meaning of the text.
+            <button
+              onClick={() => setDisclaimer(!disclaimer)}
+              className="text-white bg-red-400 p-2 absolute -top-10 -left-10 rounded-full h-10 w-10"
+            >
+              X
+            </button>
+            <span className="absolute flex right-0">({counter}s)</span>
+            The sentiment analysis provided on this website is intended for
+            informational purposes only. The analysis is based on algorithms and
+            automated processes that interpret text and derive sentiments from
+            it. While we strive for accuracy, please note that the results may
+            not always accurately represent the full context or intended meaning
+            of the text.
             {/* ... (rest of your disclaimer text) ... */}
           </div>
         </div>
-      }
+      )}
       {Logged ? (
         <form onSubmit={(e) => formSubmit(e)} className="m-auto px-10">
           {filteredQuestions.map((question, index) => (
@@ -123,8 +135,7 @@ function Assessment() {
                   selectedQuestion === index ? "text-blue-500" : ""
                 }`}
               >
-                Q- {question.Question}{" "}
-                <span className="text-red-600">*</span>
+                Q- {question.Question} <span className="text-red-600">*</span>
               </h1>
               {selectedQuestion === index && (
                 <div className="my-3">
@@ -134,79 +145,80 @@ function Assessment() {
                   >
                     Please Describe your feelings:
                   </label>
-                  <textarea
+                  <input
                     type="text"
                     id={`feelings-${index}`}
                     className="border rounded px-3 py-2 w-2/3"
                     placeholder="Enter your feelings..."
-                    value={responses[index]?.text || ''}
+                    value={responses[index]?.text || ""}
                     onChange={(e) => handleTextInput(index, e.target.value)}
                     required
                   />
                 </div>
               )}
               <div className="flex flex-wrap items-center gap-5">
-  <div className="flex items-center">
-    <input
-      
-      type="radio"
-      className=""
-      required
-      id={`unhappy-${index}`}
-      value="unhappy"
-      onChange={() => handleResponseChange(index, "Unhappy")}
-    />
-    <label htmlFor={`unhappy-${index}`}>Unhappy</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      
-      type="radio"
-      className=""
-      required
-      id={`not-so-happy-${index}`}
-      value="not-so-happy"
-      onChange={() => handleResponseChange(index, "Not So Happy")}
-    />
-    <label htmlFor={`not-so-happy-${index}`}>Not So Happy</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      
-      type="radio"
-      className=""
-      required
-      id={`neutral-${index}`}
-      value="neutral"
-      onChange={() => handleResponseChange(index, "Neutral")}
-    />
-    <label htmlFor={`neutral-${index}`}>Neutral</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      
-      type="radio"
-      className=""
-      required
-      id={`happy-${index}`}
-      value="happy"
-      onChange={() => handleResponseChange(index, "Happy")}
-    />
-    <label htmlFor={`happy-${index}`}>Happy</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      
-      type="radio"
-      className=""
-      required
-      id={`very-happy-${index}`}
-      value="very-happy"
-      onChange={() => handleResponseChange(index, "Very Happy")}
-    />
-    <label htmlFor={`very-happy-${index}`}>Very Happy</label>
-  </div>
-</div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    className=""
+                    required
+                    id={`unhappy-${index}`}
+                    name={`response-${index}`}
+                    value="unhappy"
+                    onChange={() => handleResponseChange(index, "Unhappy")}
+                  />
+                  <label htmlFor={`unhappy-${index}`}>0</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    className=""
+                    required
+                    id={`unhappy-${index}`}
+                    name={`response-${index}`}
+                    value="unhappy"
+                    onChange={() => handleResponseChange(index, "Unhappy")}
+                  />
+                  <label htmlFor={`unhappy-${index}`}>1</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    className=""
+                    required
+                    id={`unhappy-${index}`}
+                    name={`response-${index}`}
+                    value="unhappy"
+                    onChange={() => handleResponseChange(index, "Unhappy")}
+                  />
+                  <label htmlFor={`unhappy-${index}`}>2</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    className=""
+                    required
+                    id={`unhappy-${index}`}
+                    name={`response-${index}`}
+                    value="unhappy"
+                    onChange={() => handleResponseChange(index, "Unhappy")}
+                  />
+                  <label htmlFor={`unhappy-${index}`}>3</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    className=""
+                    required
+                    id={`unhappy-${index}`}
+                    name={`response-${index}`}
+                    value="unhappy"
+                    onChange={() => handleResponseChange(index, "Unhappy")}
+                  />
+                  <label htmlFor={`unhappy-${index}`}>5</label>
+                </div>
+                {/* ... (other radio button groups follow the same structure) */}
+              </div>
             </motion.div>
           ))}
           <button
@@ -216,7 +228,6 @@ function Assessment() {
           >
             Save Responses
           </button>
-          {/* Replace the console.log with your backend API call to send the responses */}
         </form>
       ) : (
         <h1 className="text-center text-2xl">
@@ -230,5 +241,4 @@ function Assessment() {
     </div>
   );
 }
-
 export default Assessment;

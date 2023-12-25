@@ -52,6 +52,7 @@ function DownloadResponse({ selectedUser }) {
         <Text style={styles.title}>User: {selectedUser.name}</Text>
         <Text style={styles.subtitle}>Email: {selectedUser.email}</Text>
         <Text style={styles.subtitle}>Responses:</Text>
+        <Text>{Response.suggestions}</Text>
         {selectedUser.responses.map((response, index) => (
           <React.Fragment key={index}>
             <Text style={styles.listItemHeader}>Q{index+1 + ": " }{selectedUser.questions[index].Question}?</Text>

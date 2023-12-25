@@ -157,7 +157,7 @@ function Assessment() {
                 </div>
               )}
               <div className="flex flex-wrap items-center gap-5">
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
@@ -167,9 +167,9 @@ function Assessment() {
                     value="unhappy"
                     onChange={() => handleResponseChange(index, "Unhappy")}
                   />
-                  <label htmlFor={`unhappy-${index}`}>0</label>
+                  <label htmlFor={`depressed-${index}`}>depressed</label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
@@ -179,9 +179,9 @@ function Assessment() {
                     value="unhappy"
                     onChange={() => handleResponseChange(index, "Unhappy")}
                   />
-                  <label htmlFor={`unhappy-${index}`}>1</label>
+                  <label htmlFor={`unhappy-${index}`}>unhappy</label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
@@ -191,9 +191,9 @@ function Assessment() {
                     value="unhappy"
                     onChange={() => handleResponseChange(index, "Unhappy")}
                   />
-                  <label htmlFor={`unhappy-${index}`}>2</label>
+                  <label htmlFor={`neutral-${index}`}>neutral</label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
@@ -203,9 +203,9 @@ function Assessment() {
                     value="unhappy"
                     onChange={() => handleResponseChange(index, "Unhappy")}
                   />
-                  <label htmlFor={`unhappy-${index}`}>3</label>
+                  <label htmlFor={`happy-${index}`}>happy</label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
@@ -215,7 +215,7 @@ function Assessment() {
                     value="unhappy"
                     onChange={() => handleResponseChange(index, "Unhappy")}
                   />
-                  <label htmlFor={`unhappy-${index}`}>5</label>
+                  <label htmlFor={`very happy-${index}`}>very happy</label>
                 </div>
                 {/* ... (other radio button groups follow the same structure) */}
               </div>

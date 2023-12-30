@@ -10,6 +10,7 @@ Font.register({
   ],
 });
 
+
 const styles = StyleSheet.create({
   page: {
     fontFamily: 'Roboto',
@@ -67,6 +68,18 @@ const styles = StyleSheet.create({
   },
 });
 
+const formattedText = (responseText) =>
+  responseText.split('**').map((part, index) =>
+    index % 2 === 0 ? (
+      <Text key={index}>{part.replace(/\*/g, '')}</Text>
+    ) : (
+      <Text key={index}>
+        <Text style={{ fontWeight: 800 }}>{part.replace(/\*/g, '')}</Text>
+        {'\n'}
+      </Text>
+    )
+  );
+
 const MyDocument = ({ data }) => {
   return (
     <Document>
@@ -79,7 +92,9 @@ const MyDocument = ({ data }) => {
        
         <Text style={styles.heading}>Patient Name:{data.name}</Text>
         <Text style={{fontSize: 14}}>Contact: {data.email}</Text>
+        <Text style={{fontSize: 14}}>suggestions : {formattedText(data.suggestions)}</Text>
         <View style={styles.section}>
+
           <Text style={styles.label}>Sentiment Scores:</Text>
           <View style={styles.table}>
             <View style={[styles.tableRow, styles.tableHeader]}>

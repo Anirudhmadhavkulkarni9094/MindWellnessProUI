@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import MyDocument from '../MyDocument';
 import axios from 'axios';
 import ReportVisualization from './ReportVisualization';
+// import { PDFViewer } from '@react-pdf/renderer';
 
 function Report() {
   const [report, setReport] = useState();
@@ -15,6 +16,7 @@ function Report() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  
 
   const handleUidChange = (e) => {
     setUid(e.target.value);
@@ -116,6 +118,9 @@ function Report() {
               {({ loading }) => (loading ? <button>Loading...</button> : <DownloadButton />)}
             </PDFDownloadLink>}
     </div>
+    {/* {reportLoaded && <PDFViewer >
+    <MyDocument></MyDocument>
+    </PDFViewer>} */}
     </>
   );
 }

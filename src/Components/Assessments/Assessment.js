@@ -28,7 +28,7 @@ function Assessment() {
       // console.log({name , email , age , category})
     }
     axios
-      .get("https://mindwellnesspro.onrender.com/questions")
+      .get("http://localhost:3001/questions")
       .then((res) => {
         setQuestions(res.data || []);
         // console.log(res.data);
@@ -55,7 +55,7 @@ function Assessment() {
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [Questions, category]);
+  }, [Questions ,category]);
 
   const handleResponseChange = (index, response) => {
     const newResponses = [...responses];
@@ -78,11 +78,12 @@ function Assessment() {
       email: email,
       age: age,
       questions: Questions,
+      category : category
     };
 
     axios
-      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
-      .then(() => {
+      .post("http://localhost:3001/UserResponse", formData)
+      .then((res) => {
         console.log("Data added successfully");
         alert("Data added successfully");
         window.location.href = '/Report';
@@ -92,6 +93,9 @@ function Assessment() {
       });
     console.log(formData);
   };
+
+  let i = 1;
+
 
   return (
     <div>
@@ -135,7 +139,7 @@ function Assessment() {
                   selectedQuestion === index ? "text-blue-500" : ""
                 }`}
               >
-                Q- {question.Question} <span className="text-red-600">*</span>
+                Q-{i++} {question.Question} <span className="text-red-600">*</span>
               </h1>
               {selectedQuestion === index && (
                 <div className="my-3">
@@ -157,18 +161,25 @@ function Assessment() {
                 </div>
               )}
               <div className="flex flex-wrap items-center gap-5">
-                <div className="flex items-center gap-5">
+                {question.Option.map(option=>{
+                  return <>
+                  <div className="flex items-center gap-5">
                   <input
                     type="radio"
                     className=""
                     required
-                    id={`unhappy-${index}`}
+                    id={`${option}-${index}`}
                     name={`response-${index}`}
-                    value="depressed"
-                    onChange={() => handleResponseChange(index, "depressed")}
+                    value={`${option}`}
+                    onChange={() => handleResponseChange(index, `${option}`)}
                   />
-                  <label htmlFor={`depressed-${index}`}>depressed</label>
+                  <label htmlFor={`${option}-${index}`}>{option}</label>
                 </div>
+                  </>
+                })
+                  
+                }
+{/*                 
                 <div className="flex items-center gap-5">
                   <input
                     type="radio"
@@ -216,7 +227,7 @@ function Assessment() {
                     onChange={() => handleResponseChange(index, "very happy")}
                   />
                   <label htmlFor={`very happy-${index}`}>very happy</label>
-                </div>
+                </div> */}
                 {/* ... (other radio button groups follow the same structure) */}
               </div>
             </motion.div>

@@ -32,6 +32,7 @@ function TestEntryForm({ info }) {
           value={info.age}
           onChange={(e) => info.setAge(e.target.value)}
         >
+          <option value="">Select age</option>
           <option value="18-25">18-25</option>
           <option value="26-35">26-35</option>
           <option value="36-45">36-45</option>

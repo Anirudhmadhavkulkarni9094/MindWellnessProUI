@@ -39,7 +39,7 @@ function AssessmentPage() {
         </button>
       </div>
       {showInfo && (
-        <TestEntryForm info = {{setName , setAge , setEmail , setShowInfo , startTestHandle , SetCategory , Category} } />
+        <TestEntryForm info = {{setName , setAge , setEmail , setShowInfo , startTestHandle , SetCategory , Category , age} } />
       )}
       <p className="text-sm text-gray-600">
         Carefully review each text sample and identify whether it conveys

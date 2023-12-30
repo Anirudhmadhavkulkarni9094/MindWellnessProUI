@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import { PDFDownloadLink} from '@react-pdf/renderer';
 import MyDocument from '../MyDocument';
 import axios from 'axios';
 import ReportVisualization from './ReportVisualization';
-// import { PDFViewer } from '@react-pdf/renderer';
 
 function Report() {
   const [report, setReport] = useState();

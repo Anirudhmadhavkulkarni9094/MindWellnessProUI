@@ -28,7 +28,7 @@ function Assessment() {
       // console.log({name , email , age , category})
     }
     axios
-      .get("http://localhost:3001/questions")
+      .get("https://mindwellnesspro.onrender.com/questions")
       .then((res) => {
         setQuestions(res.data || []);
         // console.log(res.data);
@@ -82,7 +82,7 @@ function Assessment() {
     };
 
     axios
-      .post("http://localhost:3001/UserResponse", formData)
+      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
       .then((res) => {
         console.log("Data added successfully");
         alert("Data added successfully");

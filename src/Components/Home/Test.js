@@ -5,7 +5,7 @@ import axios from 'axios'
 function Test() {
     const [test , setTest] = useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:3001/Testimonial/").then(res=>{
+        axios.get("https://mindwellnesspro.onrender.com/Testimonial/").then(res=>{
             setTest(res.data.data);
         }).catch(err=>{
             setTest([])

@@ -14,6 +14,14 @@ function Assessment() {
   const [counter, setCounter] = useState(5);
   const [category, setCategory] = useState("");
   const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const [disabled , setDisabled] = useState(false);
+
+
+  const disable = ()=>{
+    setTimeout(()=>{
+      setDisabled(true);
+    },1000)
+  }
 
   useEffect(() => {
     const userData = localStorage.getItem("User");
@@ -71,7 +79,7 @@ function Assessment() {
 
   const formSubmit = (e) => {
     e.preventDefault();
-
+    disable(); 
     const formData = {
       responses: responses,
       name: name,
@@ -85,10 +93,14 @@ function Assessment() {
       .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
       .then((res) => {
         console.log("Data added successfully");
+        console.log(formData)
+       
         alert("Data added successfully");
         window.location.href = '/Report';
       })
       .catch((err) => {
+        alert("please submit your response again");
+        setDisabled(false)
         console.log("Error adding data:", err);
       });
     console.log(formData);
@@ -173,69 +185,20 @@ function Assessment() {
                     value={`${option}`}
                     onChange={() => handleResponseChange(index, `${option}`)}
                   />
-                  <label htmlFor={`${option}-${index}`}>{option}</label>
+                  <label htmlFor={`${option}-${index}`}>{option.split(" ")[0]}</label>
                 </div>
                   </>
                 })
                   
                 }
-{/*                 
-                <div className="flex items-center gap-5">
-                  <input
-                    type="radio"
-                    className=""
-                    required
-                    id={`unhappy-${index}`}
-                    name={`response-${index}`}
-                    value="unhappy"
-                    onChange={() => handleResponseChange(index, "Unhappy")}
-                  />
-                  <label htmlFor={`unhappy-${index}`}>unhappy</label>
-                </div>
-                <div className="flex items-center gap-5">
-                  <input
-                    type="radio"
-                    className=""
-                    required
-                    id={`unhappy-${index}`}
-                    name={`response-${index}`}
-                    value="neutral"
-                    onChange={() => handleResponseChange(index, "neutral")}
-                  />
-                  <label htmlFor={`neutral-${index}`}>neutral</label>
-                </div>
-                <div className="flex items-center gap-5">
-                  <input
-                    type="radio"
-                    className=""
-                    required
-                    id={`unhappy-${index}`}
-                    name={`response-${index}`}
-                    value="happy"
-                    onChange={() => handleResponseChange(index, "happy")}
-                  />
-                  <label htmlFor={`happy-${index}`}>happy</label>
-                </div>
-                <div className="flex items-center gap-5">
-                  <input
-                    type="radio"
-                    className=""
-                    required
-                    id={`unhappy-${index}`}
-                    name={`response-${index}`}
-                    value="very happy"
-                    onChange={() => handleResponseChange(index, "very happy")}
-                  />
-                  <label htmlFor={`very happy-${index}`}>very happy</label>
-                </div> */}
-                {/* ... (other radio button groups follow the same structure) */}
               </div>
             </motion.div>
           ))}
           <button
-            onClick={() => console.log("submitted")}
             type="submit"
             className="bg-blue-400 text-white font-mono font-semibold px-5 py-3 rounded-xl my-5"
+            onClick={() => {console.log("submitted");} }
+            disabled = {disabled}
           >
             Save Responses
           </button>

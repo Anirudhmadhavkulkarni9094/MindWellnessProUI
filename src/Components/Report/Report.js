@@ -50,7 +50,14 @@ function Report() {
 
   return (
     <>
-   {reportLoaded && <ReportVisualization data={report}/>}
+    {reportLoaded && <PDFDownloadLink
+              document={<MyDocument data={report} />}
+              fileName={`${report.uniqueId}.pdf`}
+              className='bg-black p-2 text-white rounded-xl flex w-fit text-center m-auto'
+            >
+              {({ loading }) => (loading ? <button>Loading...</button> : <DownloadButton />)}
+            </PDFDownloadLink>}
+   {reportLoaded && <ReportVisualization ReportData={report}/>}
     <div className='p-10  m-auto'>
         
 
@@ -64,10 +71,6 @@ function Report() {
     <div class="ms-3 text-sm font-normal">Download Report now!</div>
     
 </div>}
-
-
-
-
       <form onSubmit={handleReportCheck} className='w-fit mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
         <div className='mb-4'>
           <label htmlFor='email' className='block text-gray-700 text-sm font-bold mb-2'>
@@ -109,24 +112,15 @@ function Report() {
       </form>
 
       {error && <p className='text-red-500 text-center'>{error}</p>} {/* Display error message */}
-      {reportLoaded && <PDFDownloadLink
-              document={<MyDocument data={report} />}
-              fileName={`${report.uniqueId}.pdf`}
-              className='bg-black p-2 text-white rounded-xl flex w-fit text-center m-auto'
-            >
-              {({ loading }) => (loading ? <button>Loading...</button> : <DownloadButton />)}
-            </PDFDownloadLink>}
+      
     </div>
-    {/* {reportLoaded && <PDFViewer >
-    <MyDocument></MyDocument>
-    </PDFViewer>} */}
     </>
   );
 }
 
 const DownloadButton = () => (
   <button className='flex gap-2'>
-    Download PDF
+    Download Report
     <img src={require('../Assets/download.png')} className='w-7 h-7' alt='Download Icon' />
   </button>
 );

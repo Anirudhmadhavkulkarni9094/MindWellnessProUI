@@ -15,22 +15,23 @@ function Assessment() {
   const [category, setCategory] = useState("");
   const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [disabled , setDisabled] = useState(false);
+const [id , setId] = useState(0);
 
-
-  const disable = ()=>{
-    setTimeout(()=>{
-      setDisabled(true);
-    },1000)
-  }
+  // const disable = ()=>{
+  //   setTimeout(()=>{
+  //     setDisabled(false);
+  //   },1000)
+  // }
 
   useEffect(() => {
     const userData = localStorage.getItem("User");
     if (userData) {
-      const { name, email, age, Category } = JSON.parse(userData);
+      const { name, email, age, Category , id } = JSON.parse(userData);
       setName(name);
       setEmail(email);
       setAge(age);
       setCategory(Category);
+      setId(id);
       const auth = localStorage.getItem("UserLogged");
       setLogged(auth);
       // console.log({name , email , age , category})
@@ -79,18 +80,19 @@ function Assessment() {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    disable(); 
+    // disable(); 
     const formData = {
       responses: responses,
       name: name,
       email: email,
       age: age,
       questions: Questions,
-      category : category
+      category : category,
+      id : id
     };
 
     axios
-      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
+      .post("http://localhost:3001/UserResponse", formData)
       .then((res) => {
         console.log("Data added successfully");
         console.log(formData)

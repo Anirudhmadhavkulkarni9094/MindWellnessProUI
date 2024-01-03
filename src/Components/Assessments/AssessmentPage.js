@@ -7,11 +7,12 @@ function AssessmentPage() {
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const [Category , SetCategory] = useState("anxiety disorder");
+
   const startTestHandle = () => {
     if (name && email && age) {
       localStorage.setItem(
         "User",
-        JSON.stringify({ name: name, email: email, age: age , Category : Category})
+        JSON.stringify({ name: name, email: email, age: age , Category : Category, id : Category == "General" ? 1 : 0})
       );
       localStorage.setItem("UserLogged", true);
       console.log(localStorage.getItem("User"))

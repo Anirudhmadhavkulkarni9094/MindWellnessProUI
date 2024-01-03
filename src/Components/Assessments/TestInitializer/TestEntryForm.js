@@ -47,6 +47,7 @@ function TestEntryForm({ info }) {
           <option value="anxiety disorder">Anxiety Disorder</option>
           <option value="depression">Depression</option>
           <option value="bipolar">Bipolar Disorder</option>
+          <option value="General">General</option>
         </select>
       </div>
       <div className="flex flex-wrap justify-between">

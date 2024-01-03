@@ -12,7 +12,7 @@ function AssessmentPage() {
     if (name && email && age) {
       localStorage.setItem(
         "User",
-        JSON.stringify({ name: name, email: email, age: age , Category : Category, id : Category == "General" ? 1 : 0})
+        JSON.stringify({ name: name, email: email, age: age , Category : Category, id : Category === "General" ? 1 : 0})
       );
       localStorage.setItem("UserLogged", true);
       console.log(localStorage.getItem("User"))

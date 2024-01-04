@@ -28,11 +28,13 @@ function Report() {
 
       if (response.data.data === 'Report not found') {
         setReportLoaded(false);
+        console.log("report not found")
         setToast(false)
         setError('Report cannot be found. Please check the credentials or try again later.');
       } else {
         setReport(response.data.data);
         setReportLoaded(true);
+        console.log()
         setToast(true);
         setTimeout(() => {
             setToast(false);

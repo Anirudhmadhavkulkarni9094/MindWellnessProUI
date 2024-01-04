@@ -7,11 +7,11 @@ Chart.register(CategoryScale); // Register the scale
 const ReportVisualization = ({ReportData}) => {
   const chartRef = useRef(null);
 
-  const dataSet = ReportData.sentiment_scores.map(item=>  item.score*100)
+  const dataSet = ReportData.sentiments_scores.map(item=>  item.score*100)
   
-  const labelSet = ReportData.sentiment_scores.map(item=>  item.label)
+  const labelSet = ReportData.sentiments_scores.map(item=>  item.label)
   
-
+console.log(ReportData)
   const data = {
     labels: labelSet, // Replace with your actual data labels
     datasets: [

@@ -92,7 +92,7 @@ const [id , setId] = useState(0);
     };
 
     axios
-      .post("http://localhost:3001/UserResponse", formData)
+      .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
       .then((res) => {
         console.log("Data added successfully");
         console.log(formData)

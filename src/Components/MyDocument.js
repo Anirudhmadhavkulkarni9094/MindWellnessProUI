@@ -101,7 +101,7 @@ const MyDocument = ({ data }) => {
               <Text style={[styles.tableCell, styles.tableHeader]}>Label</Text>
               <Text style={[styles.tableCell, styles.tableHeader]}>Score</Text>
             </View>
-            {data.sentiment_scores.map((senti, index) => (
+            {data.sentiments_scores.map((senti, index) => (
               <View style={styles.tableRow} key={index}>
                 <Text style={styles.tableCell}>{senti.label}</Text>
                 <Text style={styles.tableCell}>{(senti.score * 100).toFixed(2)}%</Text>

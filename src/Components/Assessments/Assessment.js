@@ -14,7 +14,8 @@ function Assessment() {
   const [counter, setCounter] = useState(5);
   const [category, setCategory] = useState("");
   const [filteredQuestions, setFilteredQuestions] = useState([]);
-  const [disabled , setDisabled] = useState(false);
+  const [submit , setSubmit] = useState(false);
+
 const [id , setId] = useState(0);
 
   // const disable = ()=>{
@@ -91,18 +92,20 @@ const [id , setId] = useState(0);
       id : id
     };
 
+    setSubmit(true);
     axios
       .post("https://mindwellnesspro.onrender.com/UserResponse", formData)
       .then((res) => {
         console.log("Data added successfully");
         console.log(formData)
-       
+      
         alert("Data added successfully");
         window.location.href = '/Report';
+        setSubmit(false);
       })
       .catch((err) => {
         alert("please submit your response again");
-        setDisabled(false)
+        setSubmit(false)
         console.log("Error adding data:", err);
       });
     console.log(formData);
@@ -196,14 +199,23 @@ const [id , setId] = useState(0);
               </div>
             </motion.div>
           ))}
-          <button
+         {submit ?  <button
             type="submit"
             className="bg-blue-400 text-white font-mono font-semibold px-5 py-3 rounded-xl my-5"
             onClick={() => {console.log("submitted");} }
-            disabled = {disabled}
+            disabled = {submit}
+            
           >
             Save Responses
-          </button>
+          </button> : <button
+            type="submit"
+            className="bg-red-400 cursor-not-allowed text-white font-mono font-semibold px-5 py-3 rounded-xl my-5 flex gap-5 items-center"
+            onClick={() => {console.log("submitted");} }
+            disabled = {submit}
+            
+          >
+            submitting... <span><img src={require("../Assets/loading.gif")} className="w-5 h-5"></img></span>
+          </button> }
         </form>
       ) : (
         <h1 className="text-center text-2xl">

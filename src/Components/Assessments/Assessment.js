@@ -214,7 +214,7 @@ const [id , setId] = useState(0);
             disabled = {submit}
             
           >
-            submitting... <span><img src={require("../Assets/loading.gif")} className="w-5 h-5"></img></span>
+            submitting... <span><img src={require("../Assets/loading.gif")} className="w-5 h-5" alt=""></img></span>
           </button> }
         </form>
       ) : (

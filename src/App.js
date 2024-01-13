@@ -11,6 +11,7 @@ import FORUM_HOME_PAGE from './Components/Forum/FORUM_HOME_PAGE';
 import FORUM_CONTENT from './Components/Forum/FORUM_CONTENT';
 import Report from './Components/Report/Report';
 import Suggestions from './Components/Suggestions/Suggestions';
+import AddTestimonial from './Components/Testimonial/AddTestimonial';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path = "/forum" element= {<FORUM_HOME_PAGE/>}></Route>
             <Route path = "/forum/channel" element= {<FORUM_CONTENT/>}></Route>
             <Route path = "/Suggestions" element= {<Suggestions/>}></Route>
+            <Route path = "/testimonial" element= {<AddTestimonial/>}></Route>
           
           
           </Routes>

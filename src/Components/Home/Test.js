@@ -20,9 +20,9 @@ function Test() {
             initial={{scale : 0.5}}
             whileInView={{scale : 1}}    
         >
-            <div className='flex overflow-x-scroll about '>
+            <div className='flex overflow-x-scroll about items-center -z-50 '>
                 {test.map((test , index)=>{
-                    return <motion.div key={index} className='bg-gray-600 rounded-lg text-center h-52 flex justify-between flex-col p-5 m-5 z-50'
+                    return <motion.div key={index} className='bg-gray-600 rounded-lg text-center h-fit flex justify-between flex-col p-5 m-5 z-50'
                     initial={{scale : 0.95 , rotate : 0}}
                     whileHover={{scale : 1 , rotate : -5}}
                     transition={{type:"spring" , damping : 5}}

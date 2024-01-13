@@ -80,9 +80,7 @@ const formattedText = (responseText) =>
     )
   );
 
-  const handleLink = ()=>{
-    window.location.href = "www.google.com"
-  }
+ 
 
 const MyDocument = ({ data }) => {
   return (
@@ -119,7 +117,7 @@ const MyDocument = ({ data }) => {
         <Text>
         MindWellnessPro team.
         </Text>
-        <Text onClick={handleLink}>Link</Text>
+        <Text>please provide your valuable feedback at : https://mindwellnesspro.netlify.app/testimonial</Text>
         <Text
           style={{
             position: 'absolute',

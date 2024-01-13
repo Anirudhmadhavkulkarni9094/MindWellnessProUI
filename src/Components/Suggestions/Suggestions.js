@@ -29,7 +29,7 @@ function Suggestions() {
     console.log('Form data submitted:', formData);
   
     axios
-      .post('http://localhost:3002/Suggestions', formData)
+      .post('https://mindwellnesspro.onrender.com/Suggestions', formData)
       .then((res) => {
         console.log(formData);
         setFormData({

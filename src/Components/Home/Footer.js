@@ -15,7 +15,7 @@ const Footer = () => {
             <a href="/complaints">Complaints</a>
             <a href="/suggestions">Suggestions</a>
             <a href="/forum">Forum</a>
-            <a href="/reports">Reports</a>
+            <a href="/report">Reports</a>
           </div>
           <div>
             <p>Welcome to MindWellness Pro</p>

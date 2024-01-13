@@ -22,7 +22,8 @@ function AboutUs() {
                     <h1>🤔</h1>
                     <h3 className='text-white font-bold py-2'>Assessment</h3>
                     <p className='text-white w-72'>
-                        Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.
+                    'Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.',
+
                     </p>
                 </motion.div>
                 <motion.div className='bg-green-800 rounded-lg text-center px-10 m-5 py-5'
@@ -33,7 +34,7 @@ function AboutUs() {
                     <h1>🤔</h1>
                     <h3 className='text-white font-bold py-2'>Assessment</h3>
                     <p className='text-white w-72'>
-                        Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.
+                    'Explore our comprehensive assessment tool designed to provide valuable insights into your mental well-being.',
                     </p>
                 </motion.div>
                 <motion.div className='bg-blue-800 rounded-lg text-center px-10 m-5 py-5'
@@ -44,7 +45,7 @@ function AboutUs() {
                     <h1>🤔</h1>
                     <h3 className='text-white font-bold py-2'>Assessment</h3>
                     <p className='text-white w-72'>
-                        Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.
+                    'Uncover the depths of your mental health with our assessment tool. Receive insights and actionable recommendations for a better you.',
                     </p>
                 </motion.div>
                 <motion.div className='bg-black rounded-lg text-center px-10 m-5 py-5'
@@ -55,7 +56,7 @@ function AboutUs() {
                     <h1>🤔</h1>
                     <h3 className='text-white font-bold py-2'>Assessment</h3>
                     <p className='text-white w-72'>
-                        Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.
+                    'Dive into self-reflection with our mental health assessment. Gain personalized insights and actionable steps for your well-being.',
                     </p>
                 </motion.div>
                 <motion.div className='bg-yellow-500 rounded-lg text-center px-10 m-5 py-5'
@@ -66,7 +67,7 @@ function AboutUs() {
                     <h1>🤔</h1>
                     <h3 className='text-white font-bold py-2'>Assessment</h3>
                     <p className='text-white w-72'>
-                        Take our mental health assessment to gain insights into your well-being and receive personalized recommendations.
+                    'Discover a new perspective on your mental well-being with our assessment. Personalized insights and recommendations await you.',
                     </p>
                 </motion.div>
                 <motion.div className='bg-violet-800 rounded-lg text-center px-10 m-5 py-5'

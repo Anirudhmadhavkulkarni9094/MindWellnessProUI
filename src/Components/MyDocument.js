@@ -80,6 +80,10 @@ const formattedText = (responseText) =>
     )
   );
 
+  const handleLink = ()=>{
+    window.location.href = "www.google.com"
+  }
+
 const MyDocument = ({ data }) => {
   return (
     <Document>
@@ -115,6 +119,7 @@ const MyDocument = ({ data }) => {
         <Text>
         MindWellnessPro team.
         </Text>
+        <Text onClick={handleLink}>Link</Text>
         <Text
           style={{
             position: 'absolute',

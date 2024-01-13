@@ -199,7 +199,7 @@ const [id , setId] = useState(0);
               </div>
             </motion.div>
           ))}
-         {submit ?  <button
+         {!submit ?  <button
             type="submit"
             className="bg-blue-400 text-white font-mono font-semibold px-5 py-3 rounded-xl my-5"
             onClick={() => {console.log("submitted");} }

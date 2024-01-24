@@ -47,7 +47,7 @@ console.log(ReportData)
     plugins: {
       title: {
         display: true,
-        text: 'Users Gained between 2016-2020',
+        text: 'User data',
       },
       legend: {
         display: false,

@@ -119,7 +119,7 @@ const [id , setId] = useState(0);
       <h1 className="text-3xl font-mono px-10">
         Hello{" "}
         <span className="text-blue-600">
-          {name}! lets begine your test on "{category}!"
+          {name}! lets begin your test on "{category}!"
         </span>
       </h1>
       {disclaimer && (
@@ -138,7 +138,6 @@ const [id , setId] = useState(0);
             it. While we strive for accuracy, please note that the results may
             not always accurately represent the full context or intended meaning
             of the text.
-            {/* ... (rest of your disclaimer text) ... */}
           </div>
         </div>
       )}
